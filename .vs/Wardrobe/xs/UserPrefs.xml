@@ -1,0 +1,64 @@
+﻿<Properties StartupConfiguration="aa">
+  <MonoDevelop.Ide.ItemProperties.BlazorUi PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Service/RabbitMq/Producer.cs">
+    <Files>
+      <File FileName="Api/Controllers/UserController.cs" Line="97" Column="71" />
+      <File FileName="Service/Services/JwtAuthentication.cs" Line="26" Column="35" />
+      <File FileName="Service/RabbitMq/Consumer.cs" Line="20" Column="12" />
+      <File FileName="Service/RabbitMq/Producer.cs" Line="13" Column="9" />
+      <File FileName="Service/Mail/IMailService.cs" Line="9" Column="34" />
+      <File FileName="Service/Mail/MailService.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Wardrobe" expanded="True">
+            <Node name="Api" expanded="True">
+              <Node name="Controllers" expanded="True" />
+            </Node>
+            <Node name="BlazorUi" expanded="True" />
+            <Node name="Core" expanded="True">
+              <Node name="Models" expanded="True" />
+              <Node name="Services" expanded="True" />
+            </Node>
+            <Node name="Repository" expanded="True">
+              <Node name="Repositories" expanded="True" />
+              <Node name="Seeds" expanded="True" />
+              <Node name="UnitOfWorks" expanded="True" />
+            </Node>
+            <Node name="Service" expanded="True">
+              <Node name="Mail" expanded="True" />
+              <Node name="Mapping" expanded="True" />
+              <Node name="RabbitMq" expanded="True">
+                <Node name="Producer.cs" selected="True" />
+              </Node>
+              <Node name="Services" expanded="True">
+                <Node name="JwtToken" expanded="True" />
+              </Node>
+              <Node name="Validations" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Api PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/gozdecengiz/Desktop/Wardrobe-main/Api/appsettings.json" relfile="Api/appsettings.json" line="3" column="1" />
+      <Breakpoint file="/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/Shared/EditProduct.razor" relfile="BlazorUi/Shared/EditProduct.razor" line="37" column="1" />
+      <Breakpoint file="/Users/gozdecengiz/Desktop/Wardrobe-main/Api/Controllers/ColorController.cs" relfile="Api/Controllers/ColorController.cs" line="27" column="1" />
+      <Breakpoint file="/Users/gozdecengiz/Desktop/Wardrobe-main/Api/Controllers/OfferController.cs" relfile="Api/Controllers/OfferController.cs" line="38" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="aa" Name="aa">
+      <Items>
+        <StartupItem ItemId="{537FD45C-C9D6-4943-A97C-8154FB7A0AAD}" ItemName="Api" ConfigurationId="Default" />
+        <StartupItem ItemId="{2506E633-64F5-4E5B-8AB9-A2A93C0ED6E5}" ItemName="BlazorUi" ConfigurationId="Default" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+</Properties>

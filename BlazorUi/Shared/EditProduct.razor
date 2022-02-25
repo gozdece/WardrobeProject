@@ -1,0 +1,32 @@
+﻿<h3>edit product</h3>
+
+<EditForm Model="ProductDto" OnSubmit="HandleSubmit">
+    <div class="form-group">
+        <label>Name</label>
+        <InputText @bind-Value="ProductDto.Name" class="form-control"></InputText>
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <InputText @bind-Value="ProductDto.Description" class="form-control"></InputText>
+    </div>
+    <div class="form-group">
+        <label>IsOfferable</label>
+        <InputText @bind-Value="ProductDto.Brand.Name" class="form-control"></InputText>
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <InputText @bind-Value="ProductDto.Brand.Name" class="form-control"></InputText>
+    </div>
+
+</EditForm>
+
+@code
+{
+    public ProductDto ProductDto { get; set; }
+
+    void HandleSubmit()
+    {
+
+    }
+
+}

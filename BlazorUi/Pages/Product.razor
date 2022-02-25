@@ -1,0 +1,30 @@
+﻿@page "/product/{id:int}"
+
+@using Core.Dtos.ProductDto
+@using System.Net.Http.Json
+@inject IHttpClientFactory ClientFactory
+
+<h3>Product Detail</h3>
+@if(product == null)
+{
+    <p>Product is loading...</p>
+}else
+            {
+<p>@product.Name</p>
+            }
+
+
+
+
+@code {
+
+    [Parameter]
+    public int id { get; set; }
+    ProductDto product = new ProductDto();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var client = ClientFactory.CreateClient();
+        product = await client.GetFromJsonAsync<ProductDto>($"https://localhost:5001/api/product/{id}");
+    }
+}

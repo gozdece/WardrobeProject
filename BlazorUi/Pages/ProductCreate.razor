@@ -1,0 +1,14 @@
+﻿<h3>Component1</h3>
+
+
+@inject IHttpClientFactory ClientFactory
+@code {
+    public PostProductDto PostProductDto { get; set; }
+    protected override Task OnInitializedAsync()
+    {
+        var client = ClientFactory.CreateClient();
+        var result = client.PostAsJsonAsync<PostProductDto>($"https://localhost:5001/api/product", PostProductDto);
+        return result;
+
+    }
+}

@@ -1,0 +1,60 @@
+﻿@page "/productlist"
+
+
+
+@inject IHttpClientFactory ClientFactory
+@inject NavigationManager navigation
+<h3>ProductList</h3>
+@if (productList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Sold Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in productList)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Price</td>
+                    <td>@product.IsSold</td>
+                    <td><button class="btn btn-primary" @onclick="(()=>ShowProduct(product.Id))">Detay Gor</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    public List<ProductDto> productList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var client = ClientFactory.CreateClient();
+        productList = await client.GetFromJsonAsync<List<ProductDto>>("https://localhost:5001/api/product/getall");
+        /*
+        var request = new HttpRequestMessage(HttpMethod.Get, "https://localhost:44320/api/product/getall");
+        var response = await client.SendAsync(request);
+
+        if(response.IsSuccessStatusCode)
+        {
+            var json = await response.Content.ReadAsStringAsync();
+            productList = System.Text.Json.JsonSerializer.Deserialize<List<ProductDto>>(json);
+        }
+        */
+    }
+
+    void ShowProduct(int id)
+    {
+        navigation.NavigateTo($"product/{id}");
+    }
+}

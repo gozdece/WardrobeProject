@@ -1,0 +1,111 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "439891ac-f2a0-449f-acd6-ea20f576b69e": {
+      "ProjectGuid": "439891ac-f2a0-449f-acd6-ea20f576b69e",
+      "DisplayName": "Core",
+      "ColorIndex": 0
+    },
+    "52e24226-cffe-4597-953d-2b3588f78c4a": {
+      "ProjectGuid": "52e24226-cffe-4597-953d-2b3588f78c4a",
+      "DisplayName": "Repository",
+      "ColorIndex": 1
+    },
+    "714cf033-79be-435e-ab09-6afc46f7ed03": {
+      "ProjectGuid": "714cf033-79be-435e-ab09-6afc46f7ed03",
+      "DisplayName": "Service",
+      "ColorIndex": 2
+    },
+    "537fd45c-c9d6-4943-a97c-8154fb7a0aad": {
+      "ProjectGuid": "537fd45c-c9d6-4943-a97c-8154fb7a0aad",
+      "DisplayName": "Api",
+      "ColorIndex": 3
+    },
+    "709afac0-9f64-4bde-831c-8444f0abb6b3": {
+      "ProjectGuid": "709afac0-9f64-4bde-831c-8444f0abb6b3",
+      "DisplayName": "Web",
+      "ColorIndex": 4
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Diğer Dosyalar",
+      "ColorIndex": -1
+    },
+    "10b2f196-306c-4e23-95b3-60e0c7507044": {
+      "ProjectGuid": "10b2f196-306c-4e23-95b3-60e0c7507044",
+      "DisplayName": "BlazorUi",
+      "ColorIndex": 5
+    },
+    "ef2361ca-0d4d-46a4-8be2-c3c659d3ce41": {
+      "ProjectGuid": "ef2361ca-0d4d-46a4-8be2-c3c659d3ce41",
+      "DisplayName": "BlazorUi",
+      "ColorIndex": 6
+    },
+    "78383f12-9ed3-4fcf-a685-0b81761b8baf": {
+      "ProjectGuid": "78383f12-9ed3-4fcf-a685-0b81761b8baf",
+      "DisplayName": "BlazorUi",
+      "ColorIndex": 7
+    },
+    "444d0076-f162-4ac8-8f4c-8ffb3d72c1b8": {
+      "ProjectGuid": "444d0076-f162-4ac8-8f4c-8ffb3d72c1b8",
+      "DisplayName": "BlazorUi",
+      "ColorIndex": 8
+    },
+    "aa26057e-5504-4e60-a2a0-e1d6a4a9cb0c": {
+      "ProjectGuid": "aa26057e-5504-4e60-a2a0-e1d6a4a9cb0c",
+      "DisplayName": "BlazorUi",
+      "ColorIndex": 9
+    },
+    "b301e559-6868-454c-b60a-d6641b767bf4": {
+      "ProjectGuid": "b301e559-6868-454c-b60a-d6641b767bf4",
+      "DisplayName": "BlazorUi",
+      "ColorIndex": 10
+    },
+    "698768d1-f862-4138-bb15-ea0161ccd64f": {
+      "ProjectGuid": "698768d1-f862-4138-bb15-ea0161ccd64f",
+      "DisplayName": "BlazorUi",
+      "ColorIndex": 11
+    },
+    "367610e8-27b0-4602-b3c6-6cbd4f1bcab9": {
+      "ProjectGuid": "367610e8-27b0-4602-b3c6-6cbd4f1bcab9",
+      "DisplayName": "BlazorUi",
+      "ColorIndex": 12
+    },
+    "c71b8593-d070-419f-af2a-9a110e333b7e": {
+      "ProjectGuid": "c71b8593-d070-419f-af2a-9a110e333b7e",
+      "DisplayName": "BlazorUi",
+      "ColorIndex": 13
+    },
+    "6e811ef5-8677-40a8-a441-832491456d43": {
+      "ProjectGuid": "6e811ef5-8677-40a8-a441-832491456d43",
+      "DisplayName": "BlazorUi",
+      "ColorIndex": 14
+    },
+    "68ef3301-76b9-4436-b2b6-78d83da2d1e2": {
+      "ProjectGuid": "68ef3301-76b9-4436-b2b6-78d83da2d1e2",
+      "DisplayName": "UiBlazor.Server",
+      "ColorIndex": 15
+    },
+    "d3666dfe-5219-4405-9d41-5c28ca7cfd17": {
+      "ProjectGuid": "d3666dfe-5219-4405-9d41-5c28ca7cfd17",
+      "DisplayName": "UiBlazor.Client",
+      "ColorIndex": 0
+    },
+    "a98e74be-7b16-483c-a144-dd5a0653711e": {
+      "ProjectGuid": "a98e74be-7b16-483c-a144-dd5a0653711e",
+      "DisplayName": "BlazorApp",
+      "ColorIndex": 1
+    },
+    "bc96eaf9-4fda-4fe9-aad4-4ea55333d653": {
+      "ProjectGuid": "bc96eaf9-4fda-4fe9-aad4-4ea55333d653",
+      "DisplayName": "BlazorUi",
+      "ColorIndex": 2
+    },
+    "2506e633-64f5-4e5b-8ab9-a2a93c0ed6e5": {
+      "ProjectGuid": "2506e633-64f5-4e5b-8ab9-a2a93c0ed6e5",
+      "DisplayName": "BlazorUi",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

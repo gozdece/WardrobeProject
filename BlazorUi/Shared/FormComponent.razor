@@ -1,0 +1,33 @@
+﻿
+@inject IHttpClientFactory ClientFactory
+
+    <h3>Login Page</h3>
+<EditForm Model="@user" OnValidSubmit="@Submit">
+    <DataAnnotationsValidator />
+    <p>
+        <ValidationMessage For="() => user.Email" /><br />
+        <label for="email">First Name</label><br />
+        <InputText id="email" @bind-Value="user.Email"></InputText><br />
+        <ValidationMessage For="() => user.Password" /><br />
+        <label for="password">Password</label><br />
+        <InputText type="password" id="password" @bind-Value="user.Password"></InputText>
+    </p>
+    <button type="submit">Login</button>
+</EditForm>
+@if(response != null)
+ {
+    <p>@response.StatusCode</p>
+ }
+
+@code {
+    private UserLoginDto user = new();
+    private CustomResponseDto<NoContentDto> response = new(); 
+
+    private void Submit()
+    {
+        var client = ClientFactory.CreateClient();
+        var response = client.GetFromJsonAsync<CustomResponseDto<NoContentDto>>("https://localhost:5001/api/user/login");
+        
+
+    }
+}
