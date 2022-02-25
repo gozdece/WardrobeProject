@@ -11,10 +11,10 @@ namespace Service.RabbitMq
 {
     public class Consumer
     {
-        private IMailService _mailService;
+        private IMailSender _mailService;
 
 
-        public Consumer(IMailService mailService)
+        public Consumer(IMailSender mailService)
         {
             _mailService = mailService;
            

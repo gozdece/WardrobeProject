@@ -104,15 +104,22 @@ using Core.Dtos.ProductDto;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/Pages/CategoryList.razor"
-using Core.Dtos.CategoryDto;
+#line 14 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
+using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/Pages/CategoryList.razor"
-using System.Net.Http.Json;
+#line 15 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
+using Core.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/Pages/CategoryList.razor"
+using Core.Dtos.CategoryDto;
 
 #line default
 #line hidden
@@ -126,7 +133,7 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 34 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/Pages/CategoryList.razor"
+#line 40 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/Pages/CategoryList.razor"
        
     public List<CategoryDto> categoryList;
 
@@ -136,10 +143,24 @@ using System.Net.Http.Json;
         categoryList = await client.GetFromJsonAsync<List<CategoryDto>>("https://localhost:5001/api/category/getall");
 
     }
+    void ShowProduct(int categoryId)
+    {
+        navigation.NavigateTo($"categoryProductList/{categoryId}");
+    }
+    void DeleteCategory(int categoryId)
+    {
+        var client = ClientFactory.CreateClient();
+        client.PostAsJsonAsync($"https://localhost:5001/api/category", categoryId);
+    }
+    void UpdateCategory(int cateogryId)
+        {
+
+        }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigation { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpClientFactory ClientFactory { get; set; }
     }
 }

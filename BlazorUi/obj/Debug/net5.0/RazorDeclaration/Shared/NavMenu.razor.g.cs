@@ -110,6 +110,13 @@ using System.Net.Http.Json;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 15 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
+using Core.Models;
+
+#line default
+#line hidden
+#nullable disable
     public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -118,7 +125,7 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 38 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/Shared/NavMenu.razor"
+#line 33 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/Shared/NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

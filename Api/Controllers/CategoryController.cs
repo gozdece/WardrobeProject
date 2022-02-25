@@ -56,7 +56,7 @@ namespace Api.Controllers
 
         }
 
-        [HttpGet("ProductsByCategoryId")]
+        [HttpGet("ProductsByCategoryId/{categoryId}")]
         public async Task<IActionResult> ProductsByCategoryId(int categoryId)
         {
             var category = await _service.CategoryWithProducts(categoryId);

@@ -1,33 +1,81 @@
 ﻿
 @inject IHttpClientFactory ClientFactory
+@inject NavigationManager navigation
 
-    <h3>Login Page</h3>
 <EditForm Model="@user" OnValidSubmit="@Submit">
     <DataAnnotationsValidator />
-    <p>
-        <ValidationMessage For="() => user.Email" /><br />
-        <label for="email">First Name</label><br />
-        <InputText id="email" @bind-Value="user.Email"></InputText><br />
-        <ValidationMessage For="() => user.Password" /><br />
-        <label for="password">Password</label><br />
-        <InputText type="password" id="password" @bind-Value="user.Password"></InputText>
-    </p>
-    <button type="submit">Login</button>
+    <ValidationSummary />
+    <section class="vh-100">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <h3>Login Component</h3>
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid"
+                         alt="Sample image">
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+
+
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+
+                        <InputText type="email" class="form-control form-control-lg" id="email" @bind-Value="user.Email" placeholder="Enter a valid email address"></InputText>
+                        <label class="form-label" for="email">Email address</label>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-3">
+
+                        <InputText type="password" class="form-control form-control-lg" id="password" @bind-Value="user.Password" placeholder="Enter password"></InputText>
+                        <label class="form-label" for="password">Password</label>
+                    </div>
+
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <button type="submit" class="btn btn-primary btn-lg"
+                                style="padding-left: 2.5rem; padding-right: 2.5rem;">
+                            Login
+                        </button>
+
+                        
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
 </EditForm>
-@if(response != null)
- {
-    <p>@response.StatusCode</p>
- }
+
+@if (message != null)
+{
+    <p>@message</p>
+}
 
 @code {
     private UserLoginDto user = new();
-    private CustomResponseDto<NoContentDto> response = new(); 
+    private CustomResponseDto<NoContentDto> response = new();
+    private string message = null;
 
     private void Submit()
     {
-        var client = ClientFactory.CreateClient();
-        var response = client.GetFromJsonAsync<CustomResponseDto<NoContentDto>>("https://localhost:5001/api/user/login");
-        
 
+        var client = ClientFactory.CreateClient();
+
+        var result = client.PostAsJsonAsync($"https://localhost:5001/api/user/Login", user);
+        if (result.IsFaulted)
+        {
+            navigation.NavigateTo($"home");
+        }
+        else
+        {
+            navigation.NavigateTo($"categoryList");
+        }
+
+
+    }
+    private void ShowRegisterPage()
+    {
+        navigation.NavigateTo($"register");
     }
 }

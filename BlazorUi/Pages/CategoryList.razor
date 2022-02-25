@@ -1,7 +1,8 @@
 ﻿@page "/categoryList"
 @using Core.Dtos.CategoryDto
-@using System.Net.Http.Json
+
 @inject IHttpClientFactory ClientFactory
+@inject NavigationManager navigation
 <h3>Category List</h3>
 
 @if (categoryList == null)
@@ -24,12 +25,17 @@ else
             {
             <tr>
                 <td>@category.Name</td>
-                <td colspan="3"><button type="submit" class="btn btn-success" value="Urunlere git" onclick="/productList">Urunlere git</button></td>
+                <td>@category.Id</td>
+                <td><button type="submit" class="btn btn-success" value="Urunlere git" @onclick="(()=> ShowProduct(category.Id))">Urunlere git</button></td>
+                <td ><button type="submit" class="btn btn-danger" value="Urunlere git" @onclick="(()=> DeleteCategory(category.Id))">Delete</button></td>
+                <td><button type="submit" class="btn btn-info" value="Urunlere git" @onclick="(()=> UpdateCategory(category.Id))">Update</button></td>
             </tr>
             }
         </tbody>
     </table>
 }
+
+<CategoryCreate></CategoryCreate>
 
 @code {
     public List<CategoryDto> categoryList;
@@ -40,4 +46,17 @@ else
         categoryList = await client.GetFromJsonAsync<List<CategoryDto>>("https://localhost:5001/api/category/getall");
 
     }
+    void ShowProduct(int categoryId)
+    {
+        navigation.NavigateTo($"categoryProductList/{categoryId}");
+    }
+    void DeleteCategory(int categoryId)
+    {
+        var client = ClientFactory.CreateClient();
+        client.PostAsJsonAsync($"https://localhost:5001/api/category", categoryId);
+    }
+    void UpdateCategory(int cateogryId)
+        {
+
+        }
 }

@@ -9,9 +9,9 @@ namespace Api.Controllers
     [ApiController]
     public class EmailController : ControllerBase
     {
-        private readonly IMailService _mailService;
+        private readonly IMailSender _mailService;
 
-        public EmailController(IMailService mailService)
+        public EmailController(IMailSender mailService)
         {
             _mailService = mailService;
         }

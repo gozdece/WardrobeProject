@@ -1,0 +1,87 @@
+﻿
+@inject IHttpClientFactory ClientFactory
+@inject NavigationManager navigation
+
+<EditForm Model="@user" OnValidSubmit="@Submit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <section class="vh-100">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <h3>Register Component</h3>
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                    <img src="/../Images/foto.jpg" class="img-fluid"
+                         alt="Sample image">
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+
+
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <InputText class="form-control form-control-lg" id="email" @bind-Value="user.Name" placeholder="Name..."></InputText>
+                        <label class="form-label" for="email">Name</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <InputText class="form-control form-control-lg" id="email" @bind-Value="user.Surname" placeholder="Surname..."></InputText>
+                        <label class="form-label" for="email">Surname</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <InputText class="form-control form-control-lg" id="email" @bind-Value="user.UserName" placeholder="Username..."></InputText>
+                        <label class="form-label" for="email">Username</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <InputText type="email" class="form-control form-control-lg" id="email" @bind-Value="user.Email" placeholder="Email address..."></InputText>
+                        <label class="form-label" for="email">Email address</label>
+                    </div>
+                    <!-- Password input -->
+                    <div class="form-outline mb-3">
+                        <InputText type="password" class="form-control form-control-lg" id="password" @bind-Value="user.Password" placeholder="********"></InputText>
+                        <label class="form-label" for="password">Password</label>
+                    </div>
+
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <button type="submit" class="btn btn-primary btn-lg"
+                                style="padding-left: 2.5rem; padding-right: 2.5rem;">
+                            Register
+                        </button>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+</EditForm>
+
+@if (message != null)
+{
+    <p>@message</p>
+}
+
+@code {
+    private UserRegisterDto user = new();
+    private CustomResponseDto<NoContentDto> response = new();
+    private string message = null;
+
+    private void Submit()
+    {
+
+        var client = ClientFactory.CreateClient();
+
+        var result = client.PostAsJsonAsync($"https://localhost:5001/api/user/register", user);
+        if (result.IsFaulted)
+        {
+            navigation.NavigateTo($"home");
+        }
+        else
+        {
+            navigation.NavigateTo($"categoryList");
+        }
+
+
+    }
+
+    
+}

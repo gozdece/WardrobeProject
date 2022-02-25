@@ -27,9 +27,9 @@ namespace Api.Controllers
         private readonly IService<User> _service;
         private readonly SignInManager<User> _signInManager;
         private readonly TokenGenerator _tokenGenerator;
-        private readonly IMailService _mailService;
+        private readonly IMailSender _mailService;
         public UserController(IMapper mapper,UserManager<User> userManager,SignInManager<User> signInManager,
-            TokenGenerator tokenGenerator, IService<User> service,IMailService mailService) : base(mapper)
+            TokenGenerator tokenGenerator, IService<User> service, IMailSender mailService) : base(mapper)
         {
             _userManager = userManager;
             _service = service;

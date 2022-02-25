@@ -289,3 +289,9 @@ C:/Users/sentu/source/repos/Wardrobe/BlazorUi/obj/Debug/net5.0/Razor/Pages/Produ
 /Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/obj/Debug/net5.0/Razor/Shared/EditProduct.razor.g.cs
 /Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/bin/Debug/net5.0/Autofac.dll
 /Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/bin/Debug/net5.0/Autofac.Extensions.DependencyInjection.dll
+/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/obj/Debug/net5.0/RazorDeclaration/Pages/CategoryProductList.razor.g.cs
+/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/obj/Debug/net5.0/Razor/Pages/CategoryProductList.razor.g.cs
+/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/obj/Debug/net5.0/RazorDeclaration/Shared/RegisterFormComponent.razor.g.cs
+/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/obj/Debug/net5.0/Razor/Shared/RegisterFormComponent.razor.g.cs
+/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/obj/Debug/net5.0/RazorDeclaration/Shared/CategoryCreate.razor.g.cs
+/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/obj/Debug/net5.0/Razor/Shared/CategoryCreate.razor.g.cs

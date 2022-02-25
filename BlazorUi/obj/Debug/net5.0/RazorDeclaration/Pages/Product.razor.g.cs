@@ -97,6 +97,13 @@ using Core.Dtos.UserDto;
 #line hidden
 #nullable disable
 #nullable restore
+#line 15 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
+using Core.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 3 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/Pages/Product.razor"
 using Core.Dtos.ProductDto;
 

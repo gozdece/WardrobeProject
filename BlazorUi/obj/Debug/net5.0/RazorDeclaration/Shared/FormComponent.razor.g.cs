@@ -110,6 +110,13 @@ using System.Net.Http.Json;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 15 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
+using Core.Models;
+
+#line default
+#line hidden
+#nullable disable
     public partial class FormComponent : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -118,22 +125,38 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 22 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/Shared/FormComponent.razor"
+#line 55 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/Shared/FormComponent.razor"
        
     private UserLoginDto user = new();
-    private CustomResponseDto<NoContentDto> response = new(); 
+    private CustomResponseDto<NoContentDto> response = new();
+    private string message = null;
 
     private void Submit()
     {
-        var client = ClientFactory.CreateClient();
-        var response = client.GetFromJsonAsync<CustomResponseDto<NoContentDto>>("https://localhost:5001/api/user/login");
-        
 
+        var client = ClientFactory.CreateClient();
+
+        var result = client.PostAsJsonAsync($"https://localhost:5001/api/user/Login", user);
+        if (result.IsFaulted)
+        {
+            navigation.NavigateTo($"home");
+        }
+        else
+        {
+            navigation.NavigateTo($"categoryList");
+        }
+
+
+    }
+    private void ShowRegisterPage()
+    {
+        navigation.NavigateTo($"register");
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigation { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpClientFactory ClientFactory { get; set; }
     }
 }

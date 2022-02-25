@@ -9,7 +9,7 @@ namespace Core.Dtos
 {
     public abstract class BaseEntityDto
     {
-        [JsonIgnore]
+       
         public int Id { get; set; }
         
     }

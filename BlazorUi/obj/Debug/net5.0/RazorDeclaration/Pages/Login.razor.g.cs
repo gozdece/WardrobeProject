@@ -110,6 +110,13 @@ using System.Net.Http.Json;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 15 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
+using Core.Models;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/login")]
     public partial class Login : Microsoft.AspNetCore.Components.ComponentBase
     {

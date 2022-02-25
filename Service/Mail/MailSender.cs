@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Service.Mail
 {
-    public class MailService : IMailService
+    public class MailSender : IMailSender
     {
         private readonly string host;
         private readonly int port;
@@ -17,7 +17,7 @@ namespace Service.Mail
         private readonly string password;
 
         // Get our parameterized configuration
-        public MailService(string host, int port, bool enableSSL, string userName, string password)
+        public MailSender(string host, int port, bool enableSSL, string userName, string password)
         {
             this.host = host;
             this.port = port;

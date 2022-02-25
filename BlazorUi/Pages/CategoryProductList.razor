@@ -1,0 +1,53 @@
+﻿@page "/categoryProductList/{categoryId:int}"
+
+@using System.Net.Http.Json
+@inject NavigationManager navigation
+@inject IHttpClientFactory ClientFactory
+
+<h3>Product List For @category.Name </h3>
+@if (category.Products == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Sold Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in category.Products)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Price</td>
+                    <td>@product.IsSold</td>
+                    <td><button class="btn btn-primary" @onclick="(()=>ShowProduct(product.Id))">Detay Gor</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    [Parameter]
+    public int categoryId { get; set; }
+    public Category category = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var client = ClientFactory.CreateClient();
+        category = await client.GetFromJsonAsync<Category>($"https://localhost:5001/api/category/ProductsByCategoryId/{categoryId}");
+    }
+
+    void ShowProduct(int id)
+    {
+        navigation.NavigateTo($"product/{id}");
+    }
+
+}

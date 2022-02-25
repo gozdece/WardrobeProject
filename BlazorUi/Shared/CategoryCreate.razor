@@ -1,0 +1,57 @@
+﻿
+@using Core.Dtos.CategoryDto
+@inject IHttpClientFactory ClientFactory
+@inject NavigationManager navigation
+
+<h3>Categoy Create</h3>
+
+<EditForm Model="@category" OnValidSubmit="@Submit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <section class="vh-100">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+
+                <div class="col-md-6 col-lg-6 col-xl-4 offset-xl-1">
+
+
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <InputText class="form-control form-control-lg" id="name" @bind-Value="category.Name" placeholder="Enter a valid email address"></InputText>
+                        <label class="form-label" for="name">Name</label>
+                    </div>
+
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <button type="submit" class="btn btn-primary btn-lg"
+                                style="padding-left: 2.5rem; padding-right: 2.5rem;">
+                            Create Category
+                        </button>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+</EditForm>
+
+@code {
+    public PostCategoryDto category = new();
+
+    public void Submit()
+    {
+        var client = ClientFactory.CreateClient();
+
+        var result = client.PostAsJsonAsync($"https://localhost:5001/api/category", category);
+        if (result.IsFaulted)
+        {
+            navigation.NavigateTo($"home");
+        }
+        else
+        {
+            navigation.NavigateTo($"categoryList");
+        }
+    }
+}

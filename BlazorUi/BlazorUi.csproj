@@ -10,8 +10,12 @@
 
   <ItemGroup>
     <None Remove="Microsoft.AspNetCore.Components" />
+    <None Remove="Images\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.14" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
 </Project>

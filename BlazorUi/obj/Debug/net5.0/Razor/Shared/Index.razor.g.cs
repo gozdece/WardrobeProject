@@ -107,6 +107,13 @@ using System.Net.Http.Json;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 15 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
+using Core.Models;
+
+#line default
+#line hidden
+#nullable disable
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998

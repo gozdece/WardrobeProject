@@ -98,8 +98,8 @@ namespace Api
             .AddErrorDescriber<CustomIdentityErrorDescriber>()
             .AddEntityFrameworkStores<AppDbContext>();
         
-            services.AddTransient<IMailService, MailService>(i =>
-                new MailService(
+            services.AddTransient<IMailSender, MailSender>(i =>
+                new MailSender(
                     Configuration["EmailSender:Host"],
                     Configuration.GetValue<int>("EmailSender:Port"),
                     Configuration.GetValue<bool>("EmailSender:EnableSSL"),
