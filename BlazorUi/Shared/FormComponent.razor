@@ -1,6 +1,7 @@
-﻿
+﻿@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
 @inject IHttpClientFactory ClientFactory
 @inject NavigationManager navigation
+@inject ProtectedLocalStorage Storage
 
 <EditForm Model="@user" OnValidSubmit="@Submit">
     <DataAnnotationsValidator />
@@ -57,15 +58,20 @@
     private CustomResponseDto<NoContentDto> response = new();
     private string message = null;
 
-    private void Submit()
+    private async Task Submit()
     {
 
         var client = ClientFactory.CreateClient();
+        //var request = new HttpRequestMessage(HttpMethod.Get, "https://localhost:5001/api/user/Login");
 
-        var result = client.PostAsJsonAsync($"https://localhost:5001/api/user/Login", user);
-        if (result.IsFaulted)
+        //request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", "token");
+
+        var result = await client.PostAsJsonAsync($"https://localhost:5001/api/user/Login", user);
+        if (result.IsSuccessStatusCode)
         {
-            navigation.NavigateTo($"home");
+            string token = await result.Content.ReadAsStringAsync();
+
+            await Storage.SetAsync("token", token);
         }
         else
         {

@@ -1,6 +1,12 @@
 ﻿<Properties StartupConfiguration="aa">
   <MonoDevelop.Ide.ItemProperties.BlazorUi PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BlazorUi/Pages/CategoryList.razor">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BlazorUi/Shared/FormComponent.razor">
+    <Files>
+      <File FileName="Api/Controllers/UserController.cs" Line="95" Column="22" />
+      <File FileName="Api/Startup.cs" Line="65" Column="1" />
+      <File FileName="BlazorUi/Shared/FormComponent.razor" Line="80" Column="1" />
+      <File FileName="BlazorUi/Pages/CategoryList.razor" Line="56" Column="42" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -9,25 +15,20 @@
               <Node name="Controllers" expanded="True" />
             </Node>
             <Node name="BlazorUi" expanded="True">
-              <Node name="Images" expanded="True" />
-              <Node name="Pages" expanded="True">
-                <Node name="CategoryList.razor" selected="True" />
+              <Node name="Pages" expanded="True" />
+              <Node name="Shared" expanded="True">
+                <Node name="FormComponent.razor" selected="True" />
               </Node>
-              <Node name="Shared" expanded="True" />
             </Node>
             <Node name="Core" expanded="True">
               <Node name="Dtos" expanded="True">
-                <Node name="CategoryDto" expanded="True" />
                 <Node name="UserDto" expanded="True" />
               </Node>
             </Node>
-            <Node name="Repository" expanded="True">
-              <Node name="Repositories" expanded="True" />
-            </Node>
             <Node name="Service" expanded="True">
-              <Node name="Mail" expanded="True" />
-              <Node name="RabbitMq" expanded="True" />
-              <Node name="Services" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="JwtToken" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>
@@ -46,6 +47,8 @@
       <Breakpoint file="/Users/gozdecengiz/Desktop/Wardrobe-main/Api/Controllers/CategoryController.cs" relfile="Api/Controllers/CategoryController.cs" line="61" column="1" />
       <Breakpoint file="/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/Pages/CategoryProductList.razor" relfile="BlazorUi/Pages/CategoryProductList.razor" line="44" column="1" />
       <Breakpoint file="/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/Shared/CategoryCreate.razor" relfile="BlazorUi/Shared/CategoryCreate.razor" line="47" column="1" />
+      <Breakpoint file="/Users/gozdecengiz/Desktop/Wardrobe-main/Service/Services/JwtAuthentication.cs" relfile="Service/Services/JwtAuthentication.cs" line="30" column="1" />
+      <Breakpoint file="/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/Pages/CategoryList.razor" relfile="BlazorUi/Pages/CategoryList.razor" line="61" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations>

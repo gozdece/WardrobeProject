@@ -2,6 +2,7 @@
 using Core.Dtos.BrandDto;
 using Core.Models;
 using Core.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+ 
     public class BrandController : BaseController
     {
         private readonly IService<Brand> _service;

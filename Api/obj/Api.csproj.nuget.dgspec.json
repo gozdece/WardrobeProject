@@ -283,6 +283,10 @@
               "target": "Package",
               "version": "[10.3.6, )"
             },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.14, )"
+            },
             "RabbitMQ.Client": {
               "target": "Package",
               "version": "[5.2.0, )"

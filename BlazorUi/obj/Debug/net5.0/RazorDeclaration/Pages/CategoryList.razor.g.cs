@@ -124,6 +124,13 @@ using Core.Dtos.CategoryDto;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/Pages/CategoryList.razor"
+           [Authorize]
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/categoryList")]
     public partial class CategoryList : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -133,7 +140,7 @@ using Core.Dtos.CategoryDto;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 40 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/Pages/CategoryList.razor"
+#line 41 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/Pages/CategoryList.razor"
        
     public List<CategoryDto> categoryList;
 

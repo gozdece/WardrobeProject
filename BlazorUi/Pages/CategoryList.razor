@@ -1,8 +1,10 @@
 ﻿@page "/categoryList"
 @using Core.Dtos.CategoryDto
-
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+@inject ProtectedLocalStorage Storage
 @inject IHttpClientFactory ClientFactory
 @inject NavigationManager navigation
+
 <h3>Category List</h3>
 
 @if (categoryList == null)
@@ -23,13 +25,13 @@ else
         <tbody>
             @foreach (var category in categoryList)
             {
-            <tr>
-                <td>@category.Name</td>
-                <td>@category.Id</td>
-                <td><button type="submit" class="btn btn-success" value="Urunlere git" @onclick="(()=> ShowProduct(category.Id))">Urunlere git</button></td>
-                <td ><button type="submit" class="btn btn-danger" value="Urunlere git" @onclick="(()=> DeleteCategory(category.Id))">Delete</button></td>
-                <td><button type="submit" class="btn btn-info" value="Urunlere git" @onclick="(()=> UpdateCategory(category.Id))">Update</button></td>
-            </tr>
+                <tr>
+                    <td>@category.Name</td>
+                    <td>@category.Id</td>
+                    <td><button type="submit" class="btn btn-success" value="Urunlere git" @onclick="(()=> ShowProduct(category.Id))">Urunlere git</button></td>
+                    <td><button type="submit" class="btn btn-danger" value="Urunlere git" @onclick="(()=> DeleteCategory(category.Id))">Delete</button></td>
+                    <td><button type="submit" class="btn btn-info" value="Urunlere git" @onclick="(()=> UpdateCategory(category.Id))">Update</button></td>
+                </tr>
             }
         </tbody>
     </table>
@@ -43,8 +45,19 @@ else
     protected override async Task OnInitializedAsync()
     {
         var client = ClientFactory.CreateClient();
-        categoryList = await client.GetFromJsonAsync<List<CategoryDto>>("https://localhost:5001/api/category/getall");
+        var request = new HttpRequestMessage(HttpMethod.Get, "https://localhost:5001/api/category/getall");
 
+        var token = await Storage.GetAsync<string>("token");
+        request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token.Value);
+        //categoryList = await client.GetFromJsonAsync<List<CategoryDto>>("https://localhost:5001/api/category/getall");
+
+        var response = await client.SendAsync(request);
+
+        if (response.IsSuccessStatusCode)
+        {
+            var json = await response.Content.ReadAsStringAsync();
+            categoryList = System.Text.Json.JsonSerializer.Deserialize<List<CategoryDto>>(json);
+        }
     }
     void ShowProduct(int categoryId)
     {
@@ -56,7 +69,7 @@ else
         client.PostAsJsonAsync($"https://localhost:5001/api/category", categoryId);
     }
     void UpdateCategory(int cateogryId)
-        {
+    {
 
-        }
+    }
 }

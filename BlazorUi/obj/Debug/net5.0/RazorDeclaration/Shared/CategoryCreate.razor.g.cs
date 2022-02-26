@@ -124,6 +124,13 @@ using Core.Dtos.CategoryDto;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 1 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/Shared/CategoryCreate.razor"
+           [Authorize]
+
+#line default
+#line hidden
+#nullable disable
     public partial class CategoryCreate : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
