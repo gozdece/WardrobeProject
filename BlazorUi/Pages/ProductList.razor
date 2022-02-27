@@ -1,7 +1,7 @@
 ﻿@page "/productlist"
 
 
-
+@inject ProtectedLocalStorage Storage
 @inject IHttpClientFactory ClientFactory
 @inject NavigationManager navigation
 <h3>ProductList</h3>
@@ -11,6 +11,7 @@
 }
 else
 {
+     <button type="submit" class="btn btn-success" value="Urunlere git" @onclick="(()=> CreateProduct())">Urun Olustur</button>
     <table class="table">
         <thead>
             <tr>
@@ -40,21 +41,28 @@ else
     protected override async Task OnInitializedAsync()
     {
         var client = ClientFactory.CreateClient();
-        productList = await client.GetFromJsonAsync<List<ProductDto>>("https://localhost:5001/api/product/getall");
-        /*
         var request = new HttpRequestMessage(HttpMethod.Get, "https://localhost:44320/api/product/getall");
+        var token = await Storage.GetAsync<string>("token");
+
+        request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token.Value);
+
         var response = await client.SendAsync(request);
 
-        if(response.IsSuccessStatusCode)
+        if (response.IsSuccessStatusCode)
         {
             var json = await response.Content.ReadAsStringAsync();
-            productList = System.Text.Json.JsonSerializer.Deserialize<List<ProductDto>>(json);
+            productList = System.Text.Json.JsonSerializer.Deserialize<List<ProductDto>>(json);           
         }
-        */
+
     }
 
     void ShowProduct(int id)
     {
         navigation.NavigateTo($"product/{id}");
+    }
+
+    void CreateProduct()
+    {
+        navigation.NavigateTo("createProduct");
     }
 }

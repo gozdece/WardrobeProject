@@ -34,6 +34,7 @@ namespace Service.Mapping
             CreateMap<PostProductDto, Product>();
             CreateMap<UserRegisterDto, User>();
             CreateMap<Product, ProductDto>().ReverseMap();
+            CreateMap<UsageStatusDto, UsageStatus>().ReverseMap();
             /*
             CreateMap<Product, ProductDto>().ReverseMap();
             CreateMap<Category, CategoryDto>().ReverseMap();

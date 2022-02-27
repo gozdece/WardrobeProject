@@ -1,9 +1,9 @@
 ﻿@page "/product/{id:int}"
 
 @using Core.Dtos.ProductDto
-@using System.Net.Http.Json
-@inject IHttpClientFactory ClientFactory
 
+@inject IHttpClientFactory ClientFactory
+@inject ProtectedLocalStorage Storage
 <h3>Product Detail</h3>
 @if(product == null)
 {
@@ -25,6 +25,21 @@
     protected override async Task OnInitializedAsync()
     {
         var client = ClientFactory.CreateClient();
-        product = await client.GetFromJsonAsync<ProductDto>($"https://localhost:5001/api/product/{id}");
+        var request = new HttpRequestMessage(HttpMethod.Get,$"https://localhost:44320/api/product/{id}");
+        var token = await Storage.GetAsync<string>("token");
+
+        request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token.Value);
+
+        var response = await client.SendAsync(request);
+
+        if (response.IsSuccessStatusCode)
+        {
+            var json = await response.Content.ReadAsStringAsync();
+            product = System.Text.Json.JsonSerializer.Deserialize<ProductDto>(json);           
+        }
+
+        
+
     }
+
 }

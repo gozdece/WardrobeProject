@@ -13,7 +13,10 @@
     <None Remove="Images\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Blazored.LocalStorage" Version="4.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor.HttpClient" Version="3.2.0-preview3.20168.3" />
     <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.14" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="5.0.14" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />

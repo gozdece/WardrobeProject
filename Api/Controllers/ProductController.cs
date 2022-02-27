@@ -3,7 +3,9 @@ using Core.Dtos;
 using Core.Dtos.ProductDto;
 using Core.Models;
 using Core.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,13 +15,16 @@ namespace Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductController : BaseController
     {
         private readonly IProductService _service;
-        
-        public ProductController(IProductService service,IMapper mapper) : base(mapper)
+        private readonly UserManager<User> _userManager;
+
+        public ProductController(IProductService service,IMapper mapper, UserManager<User> userManager) : base(mapper)
         {
             _service = service;
+            _userManager = userManager;
         }
 
         [HttpGet("GetAll")]
@@ -32,7 +37,9 @@ namespace Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(PostProductDto postProductDto)
         {
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
             var product = _mapper.Map<Product>(postProductDto);
+            product.UserId = currentUser.Id;
             await _service.AddAsync(product);
             return Ok();
         }

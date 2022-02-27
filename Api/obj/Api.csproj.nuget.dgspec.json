@@ -1,33 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "/Users/gozdecengiz/Desktop/Wardrobe-main/Api/Api.csproj": {}
+    "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Api\\Api.csproj": {}
   },
   "projects": {
-    "/Users/gozdecengiz/Desktop/Wardrobe-main/Api/Api.csproj": {
+    "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Api\\Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/gozdecengiz/Desktop/Wardrobe-main/Api/Api.csproj",
+        "projectUniqueName": "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Api\\Api.csproj",
         "projectName": "Api",
-        "projectPath": "/Users/gozdecengiz/Desktop/Wardrobe-main/Api/Api.csproj",
-        "packagesPath": "/Users/gozdecengiz/.nuget/packages/",
-        "outputPath": "/Users/gozdecengiz/Desktop/Wardrobe-main/Api/obj/",
+        "projectPath": "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Api\\Api.csproj",
+        "packagesPath": "C:\\Users\\sentu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/gozdecengiz/.config/NuGet/NuGet.Config"
+          "C:\\Users\\sentu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/Users/gozdecengiz/Desktop/Wardrobe-main/Service/Service.csproj": {
-                "projectPath": "/Users/gozdecengiz/Desktop/Wardrobe-main/Service/Service.csproj"
+              "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Service\\Service.csproj": {
+                "projectPath": "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Service\\Service.csproj"
               }
             }
           }
@@ -49,6 +51,10 @@
             "CryptoHelper": {
               "target": "Package",
               "version": "[3.0.2, )"
+            },
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
@@ -101,26 +107,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.404/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/gozdecengiz/Desktop/Wardrobe-main/Core/Core.csproj": {
+    "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/gozdecengiz/Desktop/Wardrobe-main/Core/Core.csproj",
+        "projectUniqueName": "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "/Users/gozdecengiz/Desktop/Wardrobe-main/Core/Core.csproj",
-        "packagesPath": "/Users/gozdecengiz/.nuget/packages/",
-        "outputPath": "/Users/gozdecengiz/Desktop/Wardrobe-main/Core/obj/",
+        "projectPath": "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\sentu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/gozdecengiz/.config/NuGet/NuGet.Config"
+          "C:\\Users\\sentu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -163,34 +171,36 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.404/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/gozdecengiz/Desktop/Wardrobe-main/Repository/Repository.csproj": {
+    "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/gozdecengiz/Desktop/Wardrobe-main/Repository/Repository.csproj",
+        "projectUniqueName": "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "/Users/gozdecengiz/Desktop/Wardrobe-main/Repository/Repository.csproj",
-        "packagesPath": "/Users/gozdecengiz/.nuget/packages/",
-        "outputPath": "/Users/gozdecengiz/Desktop/Wardrobe-main/Repository/obj/",
+        "projectPath": "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Repository\\Repository.csproj",
+        "packagesPath": "C:\\Users\\sentu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Repository\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/gozdecengiz/.config/NuGet/NuGet.Config"
+          "C:\\Users\\sentu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/Users/gozdecengiz/Desktop/Wardrobe-main/Core/Core.csproj": {
-                "projectPath": "/Users/gozdecengiz/Desktop/Wardrobe-main/Core/Core.csproj"
+              "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Core\\Core.csproj"
               }
             }
           }
@@ -233,34 +243,36 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.404/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/gozdecengiz/Desktop/Wardrobe-main/Service/Service.csproj": {
+    "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Service\\Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/gozdecengiz/Desktop/Wardrobe-main/Service/Service.csproj",
+        "projectUniqueName": "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Service\\Service.csproj",
         "projectName": "Service",
-        "projectPath": "/Users/gozdecengiz/Desktop/Wardrobe-main/Service/Service.csproj",
-        "packagesPath": "/Users/gozdecengiz/.nuget/packages/",
-        "outputPath": "/Users/gozdecengiz/Desktop/Wardrobe-main/Service/obj/",
+        "projectPath": "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Service\\Service.csproj",
+        "packagesPath": "C:\\Users\\sentu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/gozdecengiz/.config/NuGet/NuGet.Config"
+          "C:\\Users\\sentu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/Users/gozdecengiz/Desktop/Wardrobe-main/Repository/Repository.csproj": {
-                "projectPath": "/Users/gozdecengiz/Desktop/Wardrobe-main/Repository/Repository.csproj"
+              "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Repository\\Repository.csproj": {
+                "projectPath": "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Repository\\Repository.csproj"
               }
             }
           }
@@ -282,6 +294,10 @@
             "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[10.3.6, )"
+            },
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
@@ -307,7 +323,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.404/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

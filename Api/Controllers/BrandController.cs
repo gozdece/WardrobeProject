@@ -21,7 +21,7 @@ namespace Api.Controllers
         {
             _service = service;
         }
-        [HttpGet]
+        [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
             var brands = await _service.GetAllAsync();

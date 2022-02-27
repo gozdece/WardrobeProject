@@ -21,7 +21,7 @@ namespace Api.Controllers
             _service = service;
         }
 
-        [HttpGet]
+        [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
            var colors = await _service.GetAllAsync();

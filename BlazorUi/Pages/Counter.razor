@@ -1,5 +1,5 @@
 ﻿@page "/counter"
-
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
 <h1>Counter</h1>
 
 <p>Current count: @currentCount</p>
@@ -9,8 +9,15 @@
 @code {
     private int currentCount = 0;
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await localStorage.SetItemAsync("name",currentCount);
+        //var name = await localStorage.GetItemAsync<string>("name");
+    }
+
     private void IncrementCount()
     {
         currentCount++;
+        //await localStorage.SetItemAsync("counter", currentCount);
     }
 }

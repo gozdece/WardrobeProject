@@ -13,6 +13,5 @@ namespace Core.Dtos.UserDto
         public string Email { get; set; }
         [Required(ErrorMessage = "Password alani zorunludur")]
         public string Password { get; set; }
-        
     }
 }

@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace Api.Controllers
 {
+   
     [Route("api/[controller]")]
     [ApiController]
 
@@ -60,8 +61,8 @@ namespace Api.Controllers
         public async Task<IActionResult> ProductsByCategoryId(int categoryId)
         {
             var category = await _service.CategoryWithProducts(categoryId);
-            //var categoryDto = _mapper.Map<CategoryDto>(category);
-            return Ok(category);
+            var categoryDto = _mapper.Map<CategoryDto>(category);
+            return Ok(categoryDto);
         }
     }
 }

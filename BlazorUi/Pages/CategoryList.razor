@@ -13,6 +13,7 @@
 }
 else
 {
+   
     <table class="table">
         <thead>
             <tr>
@@ -23,6 +24,8 @@ else
             </tr>
         </thead>
         <tbody>
+            
+            
             @foreach (var category in categoryList)
             {
                 <tr>
@@ -33,6 +36,7 @@ else
                     <td><button type="submit" class="btn btn-info" value="Urunlere git" @onclick="(()=> UpdateCategory(category.Id))">Update</button></td>
                 </tr>
             }
+            
         </tbody>
     </table>
 }
@@ -44,20 +48,25 @@ else
 
     protected override async Task OnInitializedAsync()
     {
+
         var client = ClientFactory.CreateClient();
-        var request = new HttpRequestMessage(HttpMethod.Get, "https://localhost:5001/api/category/getall");
+        
+            var request = new HttpRequestMessage(HttpMethod.Get, "https://localhost:44320/api/category/getall");
+            var token = await Storage.GetAsync<string>("token");
 
-        var token = await Storage.GetAsync<string>("token");
-        request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token.Value);
-        //categoryList = await client.GetFromJsonAsync<List<CategoryDto>>("https://localhost:5001/api/category/getall");
+            request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token.Value);
+            
+            var response = await client.SendAsync(request);
 
-        var response = await client.SendAsync(request);
-
-        if (response.IsSuccessStatusCode)
-        {
+            if (response.IsSuccessStatusCode)
+            {
             var json = await response.Content.ReadAsStringAsync();
-            categoryList = System.Text.Json.JsonSerializer.Deserialize<List<CategoryDto>>(json);
-        }
+            categoryList = System.Text.Json.JsonSerializer.Deserialize<List<CategoryDto>>(json);           
+            }
+        
+        categoryList = await client.GetFromJsonAsync<List<CategoryDto>>("https://localhost:44320/api/category/getall");
+
+
     }
     void ShowProduct(int categoryId)
     {
@@ -72,4 +81,5 @@ else
     {
 
     }
+    
 }

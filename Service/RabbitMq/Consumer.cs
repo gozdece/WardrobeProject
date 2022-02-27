@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Service.RabbitMq
@@ -16,12 +17,10 @@ namespace Service.RabbitMq
 
         public Consumer(IMailSender mailService)
         {
-            _mailService = mailService;
-           
-            
+            _mailService = mailService;  
         }
 
-        public void BasicConsume(string mail, string subject, string message)
+        public void BasicConsume()
         {
             var factory = new ConnectionFactory()
             {
@@ -32,7 +31,7 @@ namespace Service.RabbitMq
             IModel channel = connection.CreateModel();
 
             channel.QueueDeclare(
-                    queue: "WardrobeConsumer",
+                    queue: "Wardrobe",
                     durable: false,
                     exclusive: false,
                     autoDelete: false
@@ -41,11 +40,12 @@ namespace Service.RabbitMq
             var consumer = new EventingBasicConsumer(channel);
             consumer.Received += (sender, args) =>
             {
-                var message = Encoding.UTF8.GetString(args.Body);
-                _mailService.SendEmailAsync(mail, subject, message);
+                //var message = Encoding.UTF8.GetString(args.Body);
+                var emailModel = JsonSerializer.Deserialize<EmailModel>(args.Body);
+                _mailService.SendEmailAsync(emailModel.Email,emailModel.Subject,emailModel.Message);
             };
 
-            channel.BasicConsume("WardrobeConsumer", autoAck: true, consumer: consumer);
+            channel.BasicConsume("Wardrobe", autoAck: true, consumer: consumer);
         }
     }
 }

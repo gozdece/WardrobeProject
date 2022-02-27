@@ -1,0 +1,114 @@
+﻿@page "/createProduct"
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+
+@using System.Text
+@using System.Text.Json
+@inject IHttpClientFactory ClientFactory
+
+@inject ProtectedLocalStorage Storage
+<h3>Add Product</h3>
+<hr />
+<br />
+<EditForm Model="@Product" OnValidSubmit="@Submit">
+    <DataAnnotationsValidator />
+    <div class="form-group">
+        <label for="Name">Name: </label>
+        <InputText class="form-control" id="Name" @bind-Value="Product.Name" />
+        <ValidationMessage For="() => Product.Name" />
+        
+    </div>
+    <div class="form-group">
+        <label for="Description">Description: </label>
+        <InputText class="form-control" id="Description" @bind-Value="Product.Description" />
+        <ValidationMessage For="() => Product.Description" />
+       
+    </div>
+    <div class="form-group">
+        <label for="Description">Price: </label>
+        <InputNumber class="form-control" id="Price" @bind-Value="Product.Price" />
+        <ValidationMessage For="() => Product.Price" />
+       
+    </div>
+    <div class="form-group">
+        <label for="BrandId">Categories: </label><br />
+        @if (Categories != null)
+        {
+            <InputSelect  class="form-control" id="categories" @bind-Value="Product.CategoryId">
+                @foreach (var category in Categories)
+                    {
+                    <option value="@category.Id">@category.Name</option>
+                    }
+            </InputSelect>
+        }
+       
+    </div>
+    <div class="form-group">
+        <label for="BrandId">Brands: </label><br />
+        @if (Brands != null && Categories != null)
+        {
+            <InputSelect class="form-control" id="brands" @bind-Value="Product.BrandId">
+                @foreach (var brand in Brands)
+                    {
+                    <option value="@brand.Id">@brand.Name</option>
+                    }
+            </InputSelect>
+        }
+       
+    </div>
+    <div class="form-group">
+        <label for="ColorId">Colors: </label><br />
+        @if (Colors != null && Brands != null && Categories != null)
+        {
+            <InputSelect class="form-control" id="colors" @bind-Value="Product.ColorId">
+                @foreach (var color in Colors)
+                    {
+                    <option value="@color.Id">@color.Name</option>
+                    }
+            </InputSelect>
+        }
+       
+    </div>
+     <div class="form-group">
+        <label for="ColorId">Usage Status: </label><br />
+        @if (Colors != null && Brands != null && Categories != null)
+        {
+            <InputSelect class="form-control" id="colors" @bind-Value="Product.UsageStatusId">
+                @foreach (var status in UsageStatus)
+                    {
+                    <option value="@status.Id">@status.Name</option>
+                    }
+            </InputSelect>
+        }
+       
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+</EditForm>
+@code {
+    public PostProductDto Product = new();
+
+    public List<CategoryDto> Categories;
+
+    public List<BrandDto> Brands;
+
+    public List<ColorDto> Colors;
+    public List<UsageStatusDto> UsageStatus;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        var client = ClientFactory.CreateClient();
+        Categories= await client.GetFromJsonAsync<List<CategoryDto>>("https://localhost:44320/api/category/getall");
+        Brands = await client.GetFromJsonAsync<List<BrandDto>>("https://localhost:44320/api/Brand/GetAll");
+        Colors = await client.GetFromJsonAsync<List<ColorDto>>("https://localhost:44320/api/Color/GetAll");
+        UsageStatus =await client.GetFromJsonAsync<List<UsageStatusDto>>("https://localhost:44320/api/UsageStatus/GetAll");
+    }
+
+    private async Task Submit()
+    {
+        var client = ClientFactory.CreateClient();
+        var content = JsonSerializer.Serialize(Product);
+        var bodycontent = new StringContent(content, Encoding.UTF8, "application/json"); 
+        await client.PostAsync("https://localhost:44320/api/Product", bodycontent);
+    }
+}

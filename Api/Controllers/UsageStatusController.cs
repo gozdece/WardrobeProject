@@ -4,6 +4,8 @@ using Core.Models;
 using Core.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Api.Controllers
@@ -17,10 +19,13 @@ namespace Api.Controllers
         {
             _service = service;
         }
-        [HttpGet]
+        [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
-           return Ok(await _service.GetAllAsync());
+            var statuses = await _service.GetAllAsync();
+            var statusesDto = _mapper.Map<List<UsageStatusDto>>(statuses.ToList());
+            return Ok(statusesDto);
+            
         }
         [HttpPost]
         public async Task<IActionResult> AddUsageStatus(PostUsageStatusDto postUsageStatusDto)

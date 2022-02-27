@@ -26,24 +26,23 @@ namespace Api.Controllers
         private readonly UserManager<User> _userManager;
         private readonly IService<User> _service;
         private readonly SignInManager<User> _signInManager;
-        private readonly TokenGenerator _tokenGenerator;
         private readonly IMailSender _mailService;
+        private readonly IJwtAuthenticationManager _jwtAuthenticationManager;
         public UserController(IMapper mapper,UserManager<User> userManager,SignInManager<User> signInManager,
-            TokenGenerator tokenGenerator, IService<User> service, IMailSender mailService) : base(mapper)
+            IService<User> service, IMailSender mailService, IJwtAuthenticationManager jwtAuthenticationManager) : base(mapper)
         {
 
             _userManager = userManager;
             _service = service;
             _signInManager = signInManager;
-            _tokenGenerator = tokenGenerator;
             _mailService = mailService;
+            _jwtAuthenticationManager = jwtAuthenticationManager;
         }
 
         [HttpPost("Register")]
         [AllowAnonymous]
         public async Task<IActionResult> Register(UserRegisterDto userRegisterDto)
         {
-          
                 if (ModelState.IsValid)
                 {
                     var userModel = _mapper.Map<User>(userRegisterDto);
@@ -52,9 +51,10 @@ namespace Api.Controllers
                     {
                         await _signInManager.SignInAsync(userModel, false);
 
-                    //hoşgeldin emaili gidecek
+                        Producer producer = new();
+                        producer.SendEmail(new EmailModel { Email = userModel.Email, Subject = "Güvenlik kontrolü", Message = "Welcome to Wardrobe !" });
 
-                        return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
+                    return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
                     }
                 }
             return CreateActionResult(CustomResponseDto<NoContentDto>.Fail(404,"Kayit yaparken sorun oldu"));
@@ -68,7 +68,7 @@ namespace Api.Controllers
             
             var user = await _userManager.FindByEmailAsync(userLoginDto.Email);
             var identityResult = await _signInManager.PasswordSignInAsync(user, userLoginDto.Password, false, false);
-
+            Producer producer = new();
             if (user is null || !identityResult.Succeeded)
             {
                 await _userManager.AccessFailedAsync(user); //Eğer ki başarısız bir account girişi söz konusu ise AccessFailedCount kolonundaki değer +1 arttırılacaktır.
@@ -76,14 +76,19 @@ namespace Api.Controllers
                 if (failcount == 3)
                 {
                     await _userManager.SetLockoutEndDateAsync(user, new DateTimeOffset(DateTime.Now.AddMinutes(1))); //Eğer ki başarısız giriş denemesi 3'ü bulduysa ilgili kullanıcının hesabını kilitliyoruz.
-                                                                                                                     
+
+                    
+                    producer.SendEmail(new EmailModel { Email = userLoginDto.Email, Subject = "Güvenlik kontrolü", Message = "Art arda 3 basarisiz deneme.Hesabiniz bloke oldu." });
                     return CreateActionResult(CustomResponseDto<NoContentDto>.Fail(404, "Art arda 3 basarisiz deneme. Hesabiniz bloke oldu."));
 
                 }
                 else
                 {
                     if (identityResult.IsLockedOut)
+                    {
+                        producer.SendEmail(new EmailModel { Email = userLoginDto.Email, Subject = "Güvenlik kontrolü", Message = "Art arda 3 basarisiz deneme.Hesabiniz bloke oldu." });
                         return CreateActionResult(CustomResponseDto<NoContentDto>.Fail(404, "Art arda 3 başarısız deneme"));
+                    }
 
                     return CreateActionResult(CustomResponseDto<NoContentDto>.Fail(404, "E-posta veya şifre yanlış."));
                 }
@@ -92,11 +97,12 @@ namespace Api.Controllers
             {
                 await _userManager.ResetAccessFailedCountAsync(user);//Önceki hataları girişler neticesinde +1 arttırılmış tüm değerleri 0(sıfır)a çekiyoruz.
 
-                var token = _tokenGenerator.CreateToken(user);
+                var token = _jwtAuthenticationManager.Authenticate(user);
 
-                return Ok(new AuthResponseDto { IsAuthSuccessful = true, Token = token.AccessToken });
+                return Ok(token);
 
-               
+
+
             }
                 
         }
@@ -121,6 +127,15 @@ namespace Api.Controllers
 
             await _mailService.SendEmailAsync("gozdecengiiz98@gmail.com", "konu", "mesaj");
             return Ok();
+        }
+
+        [HttpPost("authenticate")]
+        public IActionResult Authenticate(User user)
+        {
+            var token = _jwtAuthenticationManager.Authenticate(user);
+            if (token == null)
+                return Unauthorized();
+            return Ok(token);
         }
 
        

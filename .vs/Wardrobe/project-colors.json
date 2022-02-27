@@ -105,7 +105,17 @@
       "ProjectGuid": "2506e633-64f5-4e5b-8ab9-a2a93c0ed6e5",
       "DisplayName": "BlazorUi",
       "ColorIndex": 3
+    },
+    "86e9932d-267e-400d-b8e3-aa8fe81b4263": {
+      "ProjectGuid": "86e9932d-267e-400d-b8e3-aa8fe81b4263",
+      "DisplayName": "EmailWorker",
+      "ColorIndex": 4
+    },
+    "ec668fb6-0fda-4080-b613-91bcc0b841e4": {
+      "ProjectGuid": "ec668fb6-0fda-4080-b613-91bcc0b841e4",
+      "DisplayName": "WebAssembly",
+      "ColorIndex": 5
     }
   },
-  "NextColorIndex": 4
+  "NextColorIndex": 6
 }

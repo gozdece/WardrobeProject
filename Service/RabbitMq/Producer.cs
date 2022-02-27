@@ -10,9 +10,8 @@ namespace Service.RabbitMq
     public class Producer
     {
         
-        public Producer(string email)
+        public void SendEmail(EmailModel emailModel)
         {
-          
 
             ConnectionFactory factory = new ConnectionFactory()
             {
@@ -24,19 +23,25 @@ namespace Service.RabbitMq
             IModel channel = connection.CreateModel();
 
             channel.QueueDeclare(
-                queue:"WardrobeProducer",
+                queue:"Wardrobe",
                 durable:false,
                 exclusive:false,
                 autoDelete:false,null);
 
-            string message = email;
-            var body = Encoding.UTF8.GetBytes(message);
-            channel.BasicPublish(exchange: "", routingKey: "WardrobeProducer", body: body);
+            var body = Encoding.UTF8.GetBytes(System.Text.Json.JsonSerializer.Serialize(emailModel));
+            channel.BasicPublish(exchange: "", routingKey: "Wardrobe", body: body);
 
         }
         
 
         
 
+    }
+
+    public class EmailModel
+    {
+        public string Email { get; set; }
+        public string Message { get; set; }
+        public string Subject { get; set; }
     }
 }

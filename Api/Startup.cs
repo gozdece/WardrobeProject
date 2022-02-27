@@ -1,39 +1,19 @@
-using AutoMapper;
-using Core.Models;
-using Core.Repositories;
-using Core.Services;
-using Core.UnitOfWorks;
-using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Repository;
-using Repository.Repositories;
-using Repository.UnitOfWorks;
 using Service;
-using Service.Mail;
-using Service.Mapping;
-using Service.Services;
+using Service.RabbitMq;
 using Service.Services.JwtToken;
-using Service.Validations;
-using Service.Validations.CustomValidations;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Api
 {
@@ -49,7 +29,7 @@ namespace Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            var key = "bu benim string key degerim";
             services.AddControllers().AddNewtonsoftJson(options =>
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
                     
@@ -60,10 +40,30 @@ namespace Api
             });
 
             services.AddRepositoryLayerServices().AddServiceLayerServices(Configuration);
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidateAudience = true,
+                    ValidAudience = Configuration["Jwt:Auidence"],
+                    ValidateIssuer = true,
+                    ValidIssuer = Configuration["Jwt:Issuer"],
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(key)),
+                    ClockSkew = TimeSpan.Zero
+
+                };
+            });
            
-
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlConnection"), x => { x.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDbContext)).GetName().Name); }));
-
+            services.AddSingleton<IJwtAuthenticationManager>(new JwtAuthenticationManager(key));
            
         }
 

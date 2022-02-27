@@ -9,7 +9,7 @@ namespace Core.Dtos
 {
     public abstract class BaseEntityDto
     {
-       
+        [JsonPropertyName("id")]
         public int Id { get; set; }
         
     }

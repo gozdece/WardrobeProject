@@ -28,29 +28,9 @@ namespace Service
             services.AddScoped(typeof(ICategoryService), typeof(CategoryService));
             services.AddScoped(typeof(IProductService), typeof(ProductService));
             services.AddScoped(typeof(IOfferService), typeof(OfferService));
-            services.AddScoped<TokenGenerator>();
+            //services.AddScoped<TokenGenerator>();
             services.AddAutoMapper(typeof(MapProfile));
-            services.AddAuthentication(x =>
-            {
-                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(x =>
-            {
-                x.RequireHttpsMetadata = false;
-                x.SaveToken = true;
-                x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-                {
-                    ValidateAudience = true,
-                    ValidAudience = configuration["Jwt:Auidence"],
-                    ValidateIssuer = true,
-                    ValidIssuer = configuration["Jwt:Issuer"],
-                    ValidateLifetime = true,
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("Bu benim uzun string key degerim")),
-                    ClockSkew = TimeSpan.Zero
-
-                };
-            });
+            
             
             services.AddIdentity<User, Role>(_ =>
             {
@@ -64,7 +44,8 @@ namespace Service
             }).AddPasswordValidator<PasswordValidator>()
             .AddUserValidator<UserValidator>()
             .AddErrorDescriber<CustomIdentityErrorDescriber>()
-            .AddEntityFrameworkStores<AppDbContext>();
+            .AddEntityFrameworkStores<AppDbContext>()
+            .AddDefaultTokenProviders();
 
             services.AddTransient<IMailSender, MailSender>(i =>
                 new MailSender(

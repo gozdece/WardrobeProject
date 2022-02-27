@@ -1727,24 +1727,26 @@
     ]
   },
   "packageFolders": {
-    "/Users/gozdecengiz/.nuget/packages/": {}
+    "C:\\Users\\sentu\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/gozdecengiz/Desktop/Wardrobe-main/Core/Core.csproj",
+      "projectUniqueName": "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "/Users/gozdecengiz/Desktop/Wardrobe-main/Core/Core.csproj",
-      "packagesPath": "/Users/gozdecengiz/.nuget/packages/",
-      "outputPath": "/Users/gozdecengiz/Desktop/Wardrobe-main/Core/obj/",
+      "projectPath": "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Core\\Core.csproj",
+      "packagesPath": "C:\\Users\\sentu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sentu\\Source\\Repos\\WardrobeProject\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/gozdecengiz/.config/NuGet/NuGet.Config"
+        "C:\\Users\\sentu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1787,7 +1789,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.404/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

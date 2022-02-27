@@ -13,120 +13,162 @@ namespace BlazorUi.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
+#line 1 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
+#line 2 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
+#line 4 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
+#line 5 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
+#line 6 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
+#line 7 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
+#line 8 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
+#line 9 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
+#line 10 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\_Imports.razor"
 using BlazorUi;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
+#line 11 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\_Imports.razor"
 using BlazorUi.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
+#line 12 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\_Imports.razor"
 using Core.Dtos;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
+#line 13 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\_Imports.razor"
 using Core.Dtos.UserDto;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
+#line 15 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\_Imports.razor"
+using Core.Dtos.ColorDto;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 16 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\_Imports.razor"
+using Core.Dtos.OfferDto;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 17 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\_Imports.razor"
+using Core.Dtos.BrandDto;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 18 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\_Imports.razor"
+using Core.Dtos.UsageStatus;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 19 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\_Imports.razor"
 using Core.Dtos.ProductDto;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 14 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
-using System.Net.Http.Json;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 15 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/_Imports.razor"
+#line 21 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\_Imports.razor"
 using Core.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/Pages/CategoryList.razor"
+#line 22 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\_Imports.razor"
+using Blazored.LocalStorage;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 23 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\_Imports.razor"
+using BlazorUi.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 26 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\_Imports.razor"
+using System.Net.Http.Json;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\Pages\CategoryList.razor"
 using Core.Dtos.CategoryDto;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/Pages/CategoryList.razor"
-           [Authorize]
+#line 3 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\Pages\CategoryList.razor"
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 
 #line default
 #line hidden
@@ -140,14 +182,24 @@ using Core.Dtos.CategoryDto;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 41 "/Users/gozdecengiz/Desktop/Wardrobe-main/BlazorUi/Pages/CategoryList.razor"
+#line 46 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\Pages\CategoryList.razor"
        
     public List<CategoryDto> categoryList;
 
     protected override async Task OnInitializedAsync()
     {
+
         var client = ClientFactory.CreateClient();
-        categoryList = await client.GetFromJsonAsync<List<CategoryDto>>("https://localhost:5001/api/category/getall");
+        
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 66 "C:\Users\sentu\Source\Repos\WardrobeProject\BlazorUi\Pages\CategoryList.razor"
+          
+        categoryList = await client.GetFromJsonAsync<List<CategoryDto>>("https://localhost:44320/api/category/getall");
+
 
     }
     void ShowProduct(int categoryId)
@@ -160,15 +212,17 @@ using Core.Dtos.CategoryDto;
         client.PostAsJsonAsync($"https://localhost:5001/api/category", categoryId);
     }
     void UpdateCategory(int cateogryId)
-        {
+    {
 
-        }
+    }
+    
 
 #line default
 #line hidden
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigation { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpClientFactory ClientFactory { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ProtectedLocalStorage Storage { get; set; }
     }
 }
 #pragma warning restore 1591

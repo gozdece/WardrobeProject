@@ -35,6 +35,7 @@
         "dependencies": {
           "Autofac.Extensions.DependencyInjection": "5.0.1",
           "CryptoHelper": "3.0.2",
+          "Microsoft.AspNetCore.Authentication": "2.2.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "5.0.14",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "5.0.14",
           "Microsoft.EntityFrameworkCore": "5.0.14",
@@ -1849,6 +1850,7 @@
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "FluentValidation.AspNetCore": "10.3.6",
+          "Microsoft.AspNetCore.Authentication": "2.2.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "5.0.14",
           "RabbitMQ.Client": "5.2.0",
           "Repository": "1.0.0"
