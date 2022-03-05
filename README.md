@@ -12,7 +12,7 @@ Proje toplam 4 ana katmandan oluşmaktadır.
 Core katmanına veri katmanı(data layer) da denebilir. 
 Bu katmanda database ile ilişkilendirilecek modeller, kullanıcı ile iletişimde olacak data transfer objectler (dto), aynı zamanda diğer iki üst katman olan Repository ve Service katmanında kullanılacak yapıların arayüzleri bulunmaktadır. 
 Core katmanında bulunan repository ve service arayüzleri, üst katmanların doğrudan entityler ile bağlantı kurmasının önüne geçecektir.
-``Not: Bu katman hiçbir projeyi referans almamaktadır.
+``Not: Bu katman hiçbir projeyi referans almamaktadır.``
 
 ## REPOSİTORY KATMANI
 Her türlü database işlemleri bu katmanda yapılmaktadır. 
